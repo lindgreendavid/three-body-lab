@@ -20,6 +20,7 @@ classifiers = [
 ]
 dependencies = ["numpy>=1.26,<2.3", "scipy>=1.11,<2"]
 
+
 [project.optional-dependencies]
 dev = [
   "build>=1.2",
@@ -59,3 +60,7 @@ select = ["E", "F", "I", "N", "UP", "B", "SIM", "RUF"]
 python_version = "3.10"
 strict = true
 packages = ["three_body_lab"]
+
+[[tool.mypy.overrides]]
+module = "scipy.*"
+ignore_missing_imports = true
