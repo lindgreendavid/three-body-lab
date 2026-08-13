@@ -1,0 +1,751 @@
+{
+  "schema_version": 1,
+  "package_version": "0.1.0",
+  "constants": {
+    "perturbation_magnitudes": [
+      1e-08,
+      1.584893192461114e-07,
+      2.5118864315095823e-06,
+      3.9810717055349695e-05,
+      0.000630957344480193,
+      0.01
+    ],
+    "mass_ratios": [
+      0.5,
+      0.75,
+      1.0,
+      1.5,
+      2.0,
+      3.0
+    ],
+    "direction_seeds": [
+      1000,
+      2000,
+      3000
+    ],
+    "perturbation_sweep_t_max": 20.0,
+    "mass_ratio_sweep_t_max": 15.0,
+    "renorm_interval": 1.0,
+    "mass_ratio_reference_perturbation": 1e-06,
+    "stable_threshold": 0.02,
+    "chaotic_threshold": 0.1
+  },
+  "perturbation_sweep": [
+    {
+      "parameters": {
+        "sweep": "perturbation_magnitude",
+        "configuration": "figure_eight",
+        "perturbation_magnitude": 1e-08
+      },
+      "exponents": [
+        0.247221332165,
+        0.180229107061,
+        0.220029161383
+      ],
+      "mean_exponent": 0.215826533536,
+      "std_exponent": 0.027510435798,
+      "classification": "chaotic",
+      "energy_relative_drift": 9.5e-11,
+      "angular_momentum_relative_drift": 1e-12
+    },
+    {
+      "parameters": {
+        "sweep": "perturbation_magnitude",
+        "configuration": "figure_eight",
+        "perturbation_magnitude": 1.584893192461114e-07
+      },
+      "exponents": [
+        0.247221419162,
+        0.180228540516,
+        0.220028710565
+      ],
+      "mean_exponent": 0.215826223414,
+      "std_exponent": 0.027510690298,
+      "classification": "chaotic",
+      "energy_relative_drift": 9.5e-11,
+      "angular_momentum_relative_drift": 1e-12
+    },
+    {
+      "parameters": {
+        "sweep": "perturbation_magnitude",
+        "configuration": "figure_eight",
+        "perturbation_magnitude": 2.5118864315095823e-06
+      },
+      "exponents": [
+        0.247219547018,
+        0.180224763183,
+        0.220025424554
+      ],
+      "mean_exponent": 0.215823244918,
+      "std_exponent": 0.027511440051,
+      "classification": "chaotic",
+      "energy_relative_drift": 9.5e-11,
+      "angular_momentum_relative_drift": 1e-12
+    },
+    {
+      "parameters": {
+        "sweep": "perturbation_magnitude",
+        "configuration": "figure_eight",
+        "perturbation_magnitude": 3.9810717055349695e-05
+      },
+      "exponents": [
+        0.247189756374,
+        0.180165174989,
+        0.219973862734
+      ],
+      "mean_exponent": 0.215776264699,
+      "std_exponent": 0.02752318416,
+      "classification": "chaotic",
+      "energy_relative_drift": 9.5e-11,
+      "angular_momentum_relative_drift": 1e-12
+    },
+    {
+      "parameters": {
+        "sweep": "perturbation_magnitude",
+        "configuration": "figure_eight",
+        "perturbation_magnitude": 0.000630957344480193
+      },
+      "exponents": [
+        0.246747474899,
+        0.179253127368,
+        0.21919131028
+      ],
+      "mean_exponent": 0.215063970849,
+      "std_exponent": 0.027708577917,
+      "classification": "chaotic",
+      "energy_relative_drift": 9.5e-11,
+      "angular_momentum_relative_drift": 1e-12
+    },
+    {
+      "parameters": {
+        "sweep": "perturbation_magnitude",
+        "configuration": "figure_eight",
+        "perturbation_magnitude": 0.01
+      },
+      "exponents": [
+        0.245924490914,
+        0.170836783159,
+        0.212795280582
+      ],
+      "mean_exponent": 0.209852184885,
+      "std_exponent": 0.030724987911,
+      "classification": "chaotic",
+      "energy_relative_drift": 9.5e-11,
+      "angular_momentum_relative_drift": 1e-12
+    },
+    {
+      "parameters": {
+        "sweep": "perturbation_magnitude",
+        "configuration": "lagrange_equilateral",
+        "perturbation_magnitude": 1e-08
+      },
+      "exponents": [
+        1.172761056941,
+        1.140750842669,
+        1.1913591265
+      ],
+      "mean_exponent": 1.168290342036,
+      "std_exponent": 0.020901197205,
+      "classification": "chaotic",
+      "energy_relative_drift": 2e-12,
+      "angular_momentum_relative_drift": 1e-12
+    },
+    {
+      "parameters": {
+        "sweep": "perturbation_magnitude",
+        "configuration": "lagrange_equilateral",
+        "perturbation_magnitude": 1.584893192461114e-07
+      },
+      "exponents": [
+        1.172761067205,
+        1.1407507998,
+        1.191359122878
+      ],
+      "mean_exponent": 1.168290329961,
+      "std_exponent": 0.020901215432,
+      "classification": "chaotic",
+      "energy_relative_drift": 2e-12,
+      "angular_momentum_relative_drift": 1e-12
+    },
+    {
+      "parameters": {
+        "sweep": "perturbation_magnitude",
+        "configuration": "lagrange_equilateral",
+        "perturbation_magnitude": 2.5118864315095823e-06
+      },
+      "exponents": [
+        1.172761391033,
+        1.140750375811,
+        1.191359090741
+      ],
+      "mean_exponent": 1.168290285862,
+      "std_exponent": 0.020901412915,
+      "classification": "chaotic",
+      "energy_relative_drift": 2e-12,
+      "angular_momentum_relative_drift": 1e-12
+    },
+    {
+      "parameters": {
+        "sweep": "perturbation_magnitude",
+        "configuration": "lagrange_equilateral",
+        "perturbation_magnitude": 3.9810717055349695e-05
+      },
+      "exponents": [
+        1.172766531637,
+        1.140743664748,
+        1.191358577447
+      ],
+      "mean_exponent": 1.168289591277,
+      "std_exponent": 0.020904538472,
+      "classification": "chaotic",
+      "energy_relative_drift": 2e-12,
+      "angular_momentum_relative_drift": 1e-12
+    },
+    {
+      "parameters": {
+        "sweep": "perturbation_magnitude",
+        "configuration": "lagrange_equilateral",
+        "perturbation_magnitude": 0.000630957344480193
+      },
+      "exponents": [
+        1.172848699009,
+        1.140637947338,
+        1.191351010361
+      ],
+      "mean_exponent": 1.168279218903,
+      "std_exponent": 0.020954137247,
+      "classification": "chaotic",
+      "energy_relative_drift": 2e-12,
+      "angular_momentum_relative_drift": 1e-12
+    },
+    {
+      "parameters": {
+        "sweep": "perturbation_magnitude",
+        "configuration": "lagrange_equilateral",
+        "perturbation_magnitude": 0.01
+      },
+      "exponents": [
+        1.174325632842,
+        1.139124137275,
+        1.191372977093
+      ],
+      "mean_exponent": 1.16827424907,
+      "std_exponent": 0.021755455251,
+      "classification": "chaotic",
+      "energy_relative_drift": 2e-12,
+      "angular_momentum_relative_drift": 1e-12
+    },
+    {
+      "parameters": {
+        "sweep": "perturbation_magnitude",
+        "configuration": "euler_collinear",
+        "perturbation_magnitude": 1e-08
+      },
+      "exponents": [
+        1.723016729156,
+        1.923767444626,
+        1.931486153634
+      ],
+      "mean_exponent": 1.859423442472,
+      "std_exponent": 0.09650557219,
+      "classification": "chaotic",
+      "energy_relative_drift": 1e-12,
+      "angular_momentum_relative_drift": 1e-12
+    },
+    {
+      "parameters": {
+        "sweep": "perturbation_magnitude",
+        "configuration": "euler_collinear",
+        "perturbation_magnitude": 1.584893192461114e-07
+      },
+      "exponents": [
+        1.723016345654,
+        1.92376746377,
+        1.931486137513
+      ],
+      "mean_exponent": 1.859423315646,
+      "std_exponent": 0.09650575312,
+      "classification": "chaotic",
+      "energy_relative_drift": 1e-12,
+      "angular_momentum_relative_drift": 1e-12
+    },
+    {
+      "parameters": {
+        "sweep": "perturbation_magnitude",
+        "configuration": "euler_collinear",
+        "perturbation_magnitude": 2.5118864315095823e-06
+      },
+      "exponents": [
+        1.723015353357,
+        1.923767596923,
+        1.931485937302
+      ],
+      "mean_exponent": 1.859422962527,
+      "std_exponent": 0.096506200402,
+      "classification": "chaotic",
+      "energy_relative_drift": 1e-12,
+      "angular_momentum_relative_drift": 1e-12
+    },
+    {
+      "parameters": {
+        "sweep": "perturbation_magnitude",
+        "configuration": "euler_collinear",
+        "perturbation_magnitude": 3.9810717055349695e-05
+      },
+      "exponents": [
+        1.722999807992,
+        1.923769729206,
+        1.931482768396
+      ],
+      "mean_exponent": 1.859417435198,
+      "std_exponent": 0.096513209813,
+      "classification": "chaotic",
+      "energy_relative_drift": 1e-12,
+      "angular_momentum_relative_drift": 1e-12
+    },
+    {
+      "parameters": {
+        "sweep": "perturbation_magnitude",
+        "configuration": "euler_collinear",
+        "perturbation_magnitude": 0.000630957344480193
+      },
+      "exponents": [
+        1.722754504406,
+        1.923807100568,
+        1.931436116135
+      ],
+      "mean_exponent": 1.859332573703,
+      "std_exponent": 0.096625487422,
+      "classification": "chaotic",
+      "energy_relative_drift": 1e-12,
+      "angular_momentum_relative_drift": 1e-12
+    },
+    {
+      "parameters": {
+        "sweep": "perturbation_magnitude",
+        "configuration": "euler_collinear",
+        "perturbation_magnitude": 0.01
+      },
+      "exponents": [
+        1.719082773659,
+        1.925299286266,
+        1.931594177267
+      ],
+      "mean_exponent": 1.858658745731,
+      "std_exponent": 0.098728568638,
+      "classification": "chaotic",
+      "energy_relative_drift": 1e-12,
+      "angular_momentum_relative_drift": 1e-12
+    },
+    {
+      "parameters": {
+        "sweep": "perturbation_magnitude",
+        "configuration": "generic_a",
+        "perturbation_magnitude": 1e-08
+      },
+      "exponents": [
+        0.249832869967,
+        0.299040372351,
+        0.287274295089
+      ],
+      "mean_exponent": 0.278715845802,
+      "std_exponent": 0.020980623813,
+      "classification": "chaotic",
+      "energy_relative_drift": 2.92e-10,
+      "angular_momentum_relative_drift": 1.9e-11
+    },
+    {
+      "parameters": {
+        "sweep": "perturbation_magnitude",
+        "configuration": "generic_a",
+        "perturbation_magnitude": 1.584893192461114e-07
+      },
+      "exponents": [
+        0.249836962026,
+        0.299059931615,
+        0.287287082843
+      ],
+      "mean_exponent": 0.278727992161,
+      "std_exponent": 0.020986800753,
+      "classification": "chaotic",
+      "energy_relative_drift": 2.92e-10,
+      "angular_momentum_relative_drift": 1.9e-11
+    },
+    {
+      "parameters": {
+        "sweep": "perturbation_magnitude",
+        "configuration": "generic_a",
+        "perturbation_magnitude": 2.5118864315095823e-06
+      },
+      "exponents": [
+        0.249918040401,
+        0.299278776695,
+        0.287483165353
+      ],
+      "mean_exponent": 0.278893327483,
+      "std_exponent": 0.021046924682,
+      "classification": "chaotic",
+      "energy_relative_drift": 2.92e-10,
+      "angular_momentum_relative_drift": 1.9e-11
+    },
+    {
+      "parameters": {
+        "sweep": "perturbation_magnitude",
+        "configuration": "generic_a",
+        "perturbation_magnitude": 3.9810717055349695e-05
+      },
+      "exponents": [
+        0.251196005046,
+        0.30269110885,
+        0.290559469518
+      ],
+      "mean_exponent": 0.281482194471,
+      "std_exponent": 0.021980811642,
+      "classification": "chaotic",
+      "energy_relative_drift": 2.92e-10,
+      "angular_momentum_relative_drift": 1.9e-11
+    },
+    {
+      "parameters": {
+        "sweep": "perturbation_magnitude",
+        "configuration": "generic_a",
+        "perturbation_magnitude": 0.000630957344480193
+      },
+      "exponents": [
+        0.270010448811,
+        0.346854496321,
+        0.333185342354
+      ],
+      "mean_exponent": 0.316683429162,
+      "std_exponent": 0.033471248993,
+      "classification": "chaotic",
+      "energy_relative_drift": 2.92e-10,
+      "angular_momentum_relative_drift": 1.9e-11
+    },
+    {
+      "parameters": {
+        "sweep": "perturbation_magnitude",
+        "configuration": "generic_a",
+        "perturbation_magnitude": 0.01
+      },
+      "exponents": [
+        0.448597123643,
+        0.603633301923,
+        0.595840667976
+      ],
+      "mean_exponent": 0.549357031181,
+      "std_exponent": 0.071319004065,
+      "classification": "chaotic",
+      "energy_relative_drift": 2.92e-10,
+      "angular_momentum_relative_drift": 1.9e-11
+    },
+    {
+      "parameters": {
+        "sweep": "perturbation_magnitude",
+        "configuration": "generic_b",
+        "perturbation_magnitude": 1e-08
+      },
+      "exponents": [
+        0.805358675459,
+        0.792482074693,
+        0.80385299672
+      ],
+      "mean_exponent": 0.800564582291,
+      "std_exponent": 0.005748157033,
+      "classification": "chaotic",
+      "energy_relative_drift": 1.741e-08,
+      "angular_momentum_relative_drift": 4.1e-11
+    },
+    {
+      "parameters": {
+        "sweep": "perturbation_magnitude",
+        "configuration": "generic_b",
+        "perturbation_magnitude": 1.584893192461114e-07
+      },
+      "exponents": [
+        0.798890488541,
+        0.779957479424,
+        0.808169810062
+      ],
+      "mean_exponent": 0.795672592676,
+      "std_exponent": 0.011740245323,
+      "classification": "chaotic",
+      "energy_relative_drift": 1.741e-08,
+      "angular_momentum_relative_drift": 4.1e-11
+    },
+    {
+      "parameters": {
+        "sweep": "perturbation_magnitude",
+        "configuration": "generic_b",
+        "perturbation_magnitude": 2.5118864315095823e-06
+      },
+      "exponents": [
+        0.799377937562,
+        0.780510710613,
+        0.807813692349
+      ],
+      "mean_exponent": 0.795900780175,
+      "std_exponent": 0.011414352677,
+      "classification": "chaotic",
+      "energy_relative_drift": 1.741e-08,
+      "angular_momentum_relative_drift": 4.1e-11
+    },
+    {
+      "parameters": {
+        "sweep": "perturbation_magnitude",
+        "configuration": "generic_b",
+        "perturbation_magnitude": 3.9810717055349695e-05
+      },
+      "exponents": [
+        0.814325174908,
+        0.795472052084,
+        0.786509352676
+      ],
+      "mean_exponent": 0.798768859889,
+      "std_exponent": 0.011592575149,
+      "classification": "chaotic",
+      "energy_relative_drift": 1.741e-08,
+      "angular_momentum_relative_drift": 4.1e-11
+    },
+    {
+      "parameters": {
+        "sweep": "perturbation_magnitude",
+        "configuration": "generic_b",
+        "perturbation_magnitude": 0.000630957344480193
+      },
+      "exponents": [
+        0.909341948115,
+        0.890655131326,
+        0.86091236803
+      ],
+      "mean_exponent": 0.886969815824,
+      "std_exponent": 0.019942287056,
+      "classification": "chaotic",
+      "energy_relative_drift": 1.741e-08,
+      "angular_momentum_relative_drift": 4.1e-11
+    },
+    {
+      "parameters": {
+        "sweep": "perturbation_magnitude",
+        "configuration": "generic_b",
+        "perturbation_magnitude": 0.01
+      },
+      "exponents": [
+        1.140813130603,
+        1.120402693592,
+        1.132878618472
+      ],
+      "mean_exponent": 1.131364814222,
+      "std_exponent": 0.008400999434,
+      "classification": "chaotic",
+      "energy_relative_drift": 1.741e-08,
+      "angular_momentum_relative_drift": 4.1e-11
+    },
+    {
+      "parameters": {
+        "sweep": "perturbation_magnitude",
+        "configuration": "generic_c",
+        "perturbation_magnitude": 1e-08
+      },
+      "exponents": [
+        0.594058910129,
+        0.509610716356,
+        0.594149356591
+      ],
+      "mean_exponent": 0.565939661025,
+      "std_exponent": 0.039830595868,
+      "classification": "chaotic",
+      "energy_relative_drift": 6.891e-09,
+      "angular_momentum_relative_drift": 1.2e-11
+    },
+    {
+      "parameters": {
+        "sweep": "perturbation_magnitude",
+        "configuration": "generic_c",
+        "perturbation_magnitude": 1.584893192461114e-07
+      },
+      "exponents": [
+        0.576190702826,
+        0.510649419723,
+        0.600482257804
+      ],
+      "mean_exponent": 0.562440793451,
+      "std_exponent": 0.03794100425,
+      "classification": "chaotic",
+      "energy_relative_drift": 6.891e-09,
+      "angular_momentum_relative_drift": 1.2e-11
+    },
+    {
+      "parameters": {
+        "sweep": "perturbation_magnitude",
+        "configuration": "generic_c",
+        "perturbation_magnitude": 2.5118864315095823e-06
+      },
+      "exponents": [
+        0.575870073443,
+        0.508651960884,
+        0.601050175011
+      ],
+      "mean_exponent": 0.561857403113,
+      "std_exponent": 0.039001057172,
+      "classification": "chaotic",
+      "energy_relative_drift": 6.891e-09,
+      "angular_momentum_relative_drift": 1.2e-11
+    },
+    {
+      "parameters": {
+        "sweep": "perturbation_magnitude",
+        "configuration": "generic_c",
+        "perturbation_magnitude": 3.9810717055349695e-05
+      },
+      "exponents": [
+        0.576739564833,
+        0.508997166897,
+        0.600751964172
+      ],
+      "mean_exponent": 0.562162898634,
+      "std_exponent": 0.038850955405,
+      "classification": "chaotic",
+      "energy_relative_drift": 6.891e-09,
+      "angular_momentum_relative_drift": 1.2e-11
+    },
+    {
+      "parameters": {
+        "sweep": "perturbation_magnitude",
+        "configuration": "generic_c",
+        "perturbation_magnitude": 0.000630957344480193
+      },
+      "exponents": [
+        0.589406625229,
+        0.515049782494,
+        0.593858778362
+      ],
+      "mean_exponent": 0.566105062028,
+      "std_exponent": 0.03614725986,
+      "classification": "chaotic",
+      "energy_relative_drift": 6.891e-09,
+      "angular_momentum_relative_drift": 1.2e-11
+    },
+    {
+      "parameters": {
+        "sweep": "perturbation_magnitude",
+        "configuration": "generic_c",
+        "perturbation_magnitude": 0.01
+      },
+      "exponents": [
+        0.668891675181,
+        0.589012262151,
+        0.664593937766
+      ],
+      "mean_exponent": 0.640832625033,
+      "std_exponent": 0.036684512114,
+      "classification": "chaotic",
+      "energy_relative_drift": 6.891e-09,
+      "angular_momentum_relative_drift": 1.2e-11
+    }
+  ],
+  "mass_ratio_sweep": [
+    {
+      "parameters": {
+        "sweep": "mass_ratio",
+        "configuration": "lagrange_equilateral",
+        "mass_ratio": 0.5
+      },
+      "exponents": [
+        1.049802698258,
+        0.984978230846,
+        1.042881911649
+      ],
+      "mean_exponent": 1.025887613584,
+      "std_exponent": 0.029064956206,
+      "classification": "chaotic",
+      "energy_relative_drift": 1e-12,
+      "angular_momentum_relative_drift": 1e-12
+    },
+    {
+      "parameters": {
+        "sweep": "mass_ratio",
+        "configuration": "lagrange_equilateral",
+        "mass_ratio": 0.75
+      },
+      "exponents": [
+        1.103327722078,
+        1.056868595519,
+        1.123650648194
+      ],
+      "mean_exponent": 1.094615655264,
+      "std_exponent": 0.027950977574,
+      "classification": "chaotic",
+      "energy_relative_drift": 1e-12,
+      "angular_momentum_relative_drift": 1e-12
+    },
+    {
+      "parameters": {
+        "sweep": "mass_ratio",
+        "configuration": "lagrange_equilateral",
+        "mass_ratio": 1.0
+      },
+      "exponents": [
+        1.155433513446,
+        1.112751826057,
+        1.180229629642
+      ],
+      "mean_exponent": 1.149471656382,
+      "std_exponent": 0.027868396664,
+      "classification": "chaotic",
+      "energy_relative_drift": 1e-12,
+      "angular_momentum_relative_drift": 1e-12
+    },
+    {
+      "parameters": {
+        "sweep": "mass_ratio",
+        "configuration": "lagrange_equilateral",
+        "mass_ratio": 1.5
+      },
+      "exponents": [
+        1.2395129219,
+        1.202657092092,
+        1.271687339872
+      ],
+      "mean_exponent": 1.237952451288,
+      "std_exponent": 0.028203074047,
+      "classification": "chaotic",
+      "energy_relative_drift": 1e-12,
+      "angular_momentum_relative_drift": 1e-12
+    },
+    {
+      "parameters": {
+        "sweep": "mass_ratio",
+        "configuration": "lagrange_equilateral",
+        "mass_ratio": 2.0
+      },
+      "exponents": [
+        1.30232885383,
+        1.29366079185,
+        1.362021454253
+      ],
+      "mean_exponent": 1.319337033311,
+      "std_exponent": 0.030389183031,
+      "classification": "chaotic",
+      "energy_relative_drift": 2e-12,
+      "angular_momentum_relative_drift": 1e-12
+    },
+    {
+      "parameters": {
+        "sweep": "mass_ratio",
+        "configuration": "lagrange_equilateral",
+        "mass_ratio": 3.0
+      },
+      "exponents": [
+        1.411345204278,
+        1.412024795689,
+        1.475041507993
+      ],
+      "mean_exponent": 1.432803835987,
+      "std_exponent": 0.029867832903,
+      "classification": "chaotic",
+      "energy_relative_drift": 2e-12,
+      "angular_momentum_relative_drift": 1e-12
+    }
+  ]
+}
