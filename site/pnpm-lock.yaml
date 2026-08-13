@@ -4,6 +4,9 @@ settings:
   autoInstallPeers: true
   excludeLinksFromLockfile: false
 
+patchedDependencies:
+  image-size@2.0.2: b5b6f78cf50444d3f1631f4fb83b7e3580f4511ddf6eb20f41779ee4b93c5cef
+
 importers:
 
   .:
@@ -4144,7 +4147,7 @@ snapshots:
 
   ignore@7.0.6: {}
 
-  image-size@2.0.2: {}
+  image-size@2.0.2(patch_hash=b5b6f78cf50444d3f1631f4fb83b7e3580f4511ddf6eb20f41779ee4b93c5cef): {}
 
   import-fresh@3.3.1:
     dependencies:
@@ -5047,7 +5050,7 @@ snapshots:
       '@vercel/og': 0.8.6
       '@vinext/types': 1.0.0-beta.2
       '@vitejs/plugin-react': 6.0.2(vite@8.2.1(@types/node@22.19.19)(esbuild@0.28.1)(jiti@2.7.0)(terser@5.50.0))
-      image-size: 2.0.2
+      image-size: 2.0.2(patch_hash=b5b6f78cf50444d3f1631f4fb83b7e3580f4511ddf6eb20f41779ee4b93c5cef)
       ipaddr.js: 2.5.0
       magic-string: 0.30.21
       react: 19.2.8

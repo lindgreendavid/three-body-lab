@@ -5,6 +5,21 @@ All notable changes follow [Keep a Changelog](https://keepachangelog.com/en/1.1.
 
 ## [Unreleased]
 
+### Fixed
+
+- Hardened the transitive `image-size` parsers against malformed ICNS and ISO-BMFF input,
+  added executable security regression probes, and kept the production audit strict for every
+  other high-severity advisory.
+- Made frozen-registry verification portable across operating systems by comparing floating-point
+  values with a narrow numerical tolerance, including an explicitly bounded tolerance for
+  chaotic finite-time Lyapunov estimates from the ODE solver (10% relative for individual and
+  mean estimates; `0.05` absolute for the three-seed standard deviation), while retaining exact
+  checks for classifications, structure, and parameters; conservation diagnostics are required to
+  remain below the frozen study's physical acceptance bounds (`2e-8` relative energy drift and
+  `1e-10` relative angular-momentum drift), and every other field remains exact.
+- Ignored incremental TypeScript build state and aligned the Cloudflare compatibility date with
+  the version supported by the pinned runtime.
+
 ### Changed
 
 - `site/`: a presentation-quality pass over the interactive laboratory, with no change to
