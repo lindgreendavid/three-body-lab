@@ -11,7 +11,8 @@ All notable changes follow [Keep a Changelog](https://keepachangelog.com/en/1.1.
   added executable security regression probes, and kept the production audit strict for every
   other high-severity advisory.
 - Made frozen-registry verification portable across operating systems by comparing floating-point
-  values with a narrow numerical tolerance while retaining exact checks for all other data.
+  values with a narrow numerical tolerance, including an explicitly bounded tolerance for
+  Lyapunov estimates from the ODE solver, while retaining exact checks for all other data.
 - Ignored incremental TypeScript build state and aligned the Cloudflare compatibility date with
   the version supported by the pinned runtime.
 

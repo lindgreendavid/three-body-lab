@@ -11,6 +11,15 @@ from typing import Any
 
 REL_TOLERANCE = 1e-9
 ABS_TOLERANCE = 1e-12
+LYAPUNOV_ABS_TOLERANCE = 1e-6
+
+
+def _absolute_tolerance(path: str) -> float:
+    """Bound cross-platform ODE variation without relaxing other registry fields."""
+    is_lyapunov_output = (
+        ".exponents[" in path or path.endswith(".mean_exponent") or path.endswith(".std_exponent")
+    )
+    return LYAPUNOV_ABS_TOLERANCE if is_lyapunov_output else ABS_TOLERANCE
 
 
 def assert_registry_close(expected: Any, actual: Any, path: str = "$") -> None:
@@ -43,17 +52,18 @@ def assert_registry_close(expected: Any, actual: Any, path: str = "$") -> None:
     if isinstance(expected, (int, float)) and isinstance(actual, (int, float)):
         expected_float = float(expected)
         actual_float = float(actual)
+        absolute_tolerance = _absolute_tolerance(path)
         if not math.isfinite(expected_float) or not math.isfinite(actual_float):
             raise AssertionError(f"{path}: registry numbers must be finite")
         if not math.isclose(
             expected_float,
             actual_float,
             rel_tol=REL_TOLERANCE,
-            abs_tol=ABS_TOLERANCE,
+            abs_tol=absolute_tolerance,
         ):
             raise AssertionError(
                 f"{path}: expected {expected!r}, got {actual!r} "
-                f"(rel_tol={REL_TOLERANCE}, abs_tol={ABS_TOLERANCE})"
+                f"(rel_tol={REL_TOLERANCE}, abs_tol={absolute_tolerance})"
             )
         return
 
