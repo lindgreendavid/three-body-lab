@@ -42,7 +42,7 @@ Full reasoning, every hypothesis's disposition, and the limitations that qualify
 | [`src/three_body_lab/`](src/three_body_lab/) | The Python package: DOP853 integrator, special-solution generators, Benettin two-trajectory Lyapunov estimator, and the sweep. |
 | [`tests/`](tests/) | Conservation/periodicity regression tests against the three known special solutions, and a byte-comparison test against the frozen registry. |
 | [`reports/v0.1-lyapunov-registry.json`](reports/v0.1-lyapunov-registry.json) | The frozen, deterministic sweep output. |
-| [`site/`](site/) | An interactive Next.js (vinext) laboratory: live simulator, twin-trajectory divergence view, and the chaos map, built for Cloudflare Workers. |
+| [`site/`](site/) | An interactive Next.js (vinext) laboratory: an autoplaying hero animation of the real figure-eight orbit, a live simulator with fading-trail rendering, a downloadable video export of a run, a twin-trajectory divergence view, and the chaos map, built for Cloudflare Workers. |
 
 ## Run the simulator locally
 
