@@ -3,6 +3,21 @@
 All notable changes follow [Keep a Changelog](https://keepachangelog.com/en/1.1.0/) and
 [Semantic Versioning](https://semver.org/).
 
+## [Unreleased]
+
+### Changed
+
+- `site/`: a presentation-quality pass over the interactive laboratory, with no change to
+  any physics, integration, or research claim. The live simulator now renders orbital
+  trails as fading, long-exposure-style gradients (instead of flat lines) using the site's
+  `--acid`/`--coral`/`--blue` palette tokens for the three bodies and the reference-vs-twin
+  distinction; a new "Export video clip" control uses the browser's native `MediaRecorder`
+  API to download a 5-second WebM clip of a run, so a divergence can be shared as content
+  rather than only viewed live; and the hero section replaces the static decorative outline
+  with a small autoplaying, looping canvas animation of the real figure-eight orbit (reusing
+  the same physics module as the live simulator) alongside a visibly diverging perturbed
+  twin. All three respect `prefers-reduced-motion`.
+
 ## [0.1.0] - 2026-08-13
 
 ### Added
