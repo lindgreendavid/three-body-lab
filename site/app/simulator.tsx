@@ -40,6 +40,65 @@ const DT = 0.004;
 
 type Trail = { x: number; y: number }[];
 
+/** Reads the live palette tokens from `globals.css` so canvas colors stay in sync with the
+ * rest of the UI instead of duplicating hex values. Falls back to the known token values if
+ * computed styles are unavailable (e.g. during a non-browser test render). */
+function readPalette(): [string, string, string] {
+  if (typeof window === "undefined") return ["#00708f", "#8874c3", "#f6c655"];
+  const style = getComputedStyle(document.documentElement);
+  const read = (name: string, fallback: string) => style.getPropertyValue(name).trim() || fallback;
+  return [read("--blue", "#00708f"), read("--coral", "#8874c3"), read("--acid", "#f6c655")];
+}
+
+/** Draws a trail as a long-exposure-style fading gradient: older points are thinner and
+ * more transparent, the most recent segment is fully opaque. Reduces to a single flat,
+ * low-alpha stroke when `reduced` is set, so motion-sensitive visitors get a much quieter
+ * picture instead of the full comet-tail effect. */
+function drawFadingTrail(
+  ctx: CanvasRenderingContext2D,
+  trail: Trail,
+  toScreen: (x: number, y: number) => { x: number; y: number },
+  color: string,
+  options: { dashed?: boolean; reduced?: boolean; baseAlpha?: number } = {},
+) {
+  if (trail.length < 2) return;
+  const { dashed = false, reduced = false, baseAlpha = 0.85 } = options;
+
+  if (reduced) {
+    ctx.save();
+    ctx.strokeStyle = color;
+    ctx.globalAlpha = baseAlpha * 0.4;
+    ctx.lineWidth = 1.25;
+    if (dashed) ctx.setLineDash([3, 4]);
+    ctx.beginPath();
+    trail.forEach((point, i) => {
+      const p = toScreen(point.x, point.y);
+      if (i === 0) ctx.moveTo(p.x, p.y);
+      else ctx.lineTo(p.x, p.y);
+    });
+    ctx.stroke();
+    ctx.restore();
+    return;
+  }
+
+  ctx.save();
+  if (dashed) ctx.setLineDash([3, 4]);
+  const segments = trail.length - 1;
+  for (let i = 0; i < segments; i += 1) {
+    const t = i / segments; // 0 = oldest, 1 = newest
+    const a = toScreen(trail[i].x, trail[i].y);
+    const b = toScreen(trail[i + 1].x, trail[i + 1].y);
+    ctx.strokeStyle = color;
+    ctx.globalAlpha = baseAlpha * t ** 1.6;
+    ctx.lineWidth = 0.6 + t * (dashed ? 1.2 : 2.1);
+    ctx.beginPath();
+    ctx.moveTo(a.x, a.y);
+    ctx.lineTo(b.x, b.y);
+    ctx.stroke();
+  }
+  ctx.restore();
+}
+
 export default function Simulator() {
   const [preset, setPreset] = useState<PresetName>("figure-eight");
   const [perturbationExponent, setPerturbationExponent] = useState(-2); // 10^-2
@@ -48,9 +107,12 @@ export default function Simulator() {
   const [elapsedTime, setElapsedTime] = useState(0);
   const [energyDrift, setEnergyDrift] = useState(0);
   const [currentSeparation, setCurrentSeparation] = useState(0);
+  const [reducedMotion, setReducedMotion] = useState(false);
+  const [exportState, setExportState] = useState<"idle" | "recording" | "unsupported">("idle");
 
   const canvasRef = useRef<HTMLCanvasElement | null>(null);
   const separationCanvasRef = useRef<SVGPolylineElement | null>(null);
+  const recorderRef = useRef<MediaRecorder | null>(null);
 
   const perturbationMagnitude = 10 ** perturbationExponent;
 
@@ -90,6 +152,18 @@ export default function Simulator() {
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [preset, perturbationExponent]);
 
+  // Track prefers-reduced-motion live so the canvas swaps between the full fading-trail
+  // treatment and a quieter static-leaning render if the OS setting changes mid-session.
+  useEffect(() => {
+    if (typeof window === "undefined" || !window.matchMedia) return;
+    const query = window.matchMedia("(prefers-reduced-motion: reduce)");
+    // eslint-disable-next-line react-hooks/set-state-in-effect
+    setReducedMotion(query.matches);
+    const listener = (event: MediaQueryListEvent) => setReducedMotion(event.matches);
+    query.addEventListener("change", listener);
+    return () => query.removeEventListener("change", listener);
+  }, []);
+
   useEffect(() => {
     const canvas = canvasRef.current;
     if (!canvas) return;
@@ -122,7 +196,11 @@ export default function Simulator() {
 
       const width = canvas.width;
       const height = canvas.height;
-      ctx.fillStyle = "#0b0e18";
+      // A slightly translucent fill (instead of a hard clear) leaves the faintest ghost of
+      // the previous frame, reinforcing the long-exposure feel without needing to retain
+      // more trail history. Skipped under reduced motion, where we want the picture as
+      // static as the underlying physics allows.
+      ctx.fillStyle = reducedMotion ? "#0b0e18" : "rgba(11, 14, 24, 0.42)";
       ctx.fillRect(0, 0, width, height);
 
       const scale = Math.min(width, height) / 5.2;
@@ -130,23 +208,27 @@ export default function Simulator() {
       const cy = height / 2;
       const toScreen = (x: number, y: number) => ({ x: cx + x * scale, y: cy - y * scale });
 
-      const colors = ["#3b4ad8", "#f4756c", "#7ef0c2"];
+      const colors = readPalette();
+
       trailsRef.current.forEach((trail, index) => {
-        if (trail.length < 2) return;
-        ctx.strokeStyle = colors[index];
-        ctx.globalAlpha = 0.65;
-        ctx.lineWidth = 1.5;
-        ctx.beginPath();
-        trail.forEach((point, i) => {
-          const p = toScreen(point.x, point.y);
-          if (i === 0) ctx.moveTo(p.x, p.y);
-          else ctx.lineTo(p.x, p.y);
+        drawFadingTrail(ctx, trail, toScreen, colors[index], {
+          reduced: reducedMotion,
+          baseAlpha: 0.9,
         });
-        ctx.stroke();
       });
-      ctx.globalAlpha = 1;
       referenceRef.current.bodies.forEach((body, index) => {
         const p = toScreen(body.position.x, body.position.y);
+        if (!reducedMotion) {
+          const glow = ctx.createRadialGradient(p.x, p.y, 0, p.x, p.y, 14);
+          glow.addColorStop(0, colors[index]);
+          glow.addColorStop(1, "transparent");
+          ctx.fillStyle = glow;
+          ctx.globalAlpha = 0.55;
+          ctx.beginPath();
+          ctx.arc(p.x, p.y, 14, 0, Math.PI * 2);
+          ctx.fill();
+          ctx.globalAlpha = 1;
+        }
         ctx.fillStyle = colors[index];
         ctx.beginPath();
         ctx.arc(p.x, p.y, 6, 0, Math.PI * 2);
@@ -154,21 +236,12 @@ export default function Simulator() {
       });
 
       twinTrailsRef.current.forEach((trail, index) => {
-        if (trail.length < 2) return;
-        ctx.strokeStyle = colors[index];
-        ctx.globalAlpha = 0.35;
-        ctx.setLineDash([3, 4]);
-        ctx.lineWidth = 1;
-        ctx.beginPath();
-        trail.forEach((point, i) => {
-          const p = toScreen(point.x, point.y);
-          if (i === 0) ctx.moveTo(p.x, p.y);
-          else ctx.lineTo(p.x, p.y);
+        drawFadingTrail(ctx, trail, toScreen, colors[index], {
+          dashed: true,
+          reduced: reducedMotion,
+          baseAlpha: 0.55,
         });
-        ctx.stroke();
-        ctx.setLineDash([]);
       });
-      ctx.globalAlpha = 1;
       twinRef.current.bodies.forEach((body, index) => {
         const p = toScreen(body.position.x, body.position.y);
         ctx.strokeStyle = colors[index];
@@ -207,9 +280,58 @@ export default function Simulator() {
     return () => {
       if (frameRef.current) cancelAnimationFrame(frameRef.current);
     };
-  }, [running, resetToken, perturbationMagnitude]);
+  }, [running, resetToken, perturbationMagnitude, reducedMotion]);
 
   const copy = useMemo(() => PRESET_COPY[preset], [preset]);
+
+  // Records a short clip of the live canvas via the browser's native MediaRecorder API
+  // (no new dependency) and downloads it as a WebM video — a shareable artifact of the
+  // divergence this simulator shows, rather than a research instrument only.
+  const exportClip = useCallback(() => {
+    const canvas = canvasRef.current;
+    if (
+      !canvas ||
+      typeof MediaRecorder === "undefined" ||
+      typeof canvas.captureStream !== "function"
+    ) {
+      setExportState("unsupported");
+      return;
+    }
+
+    const stream = canvas.captureStream(30);
+    const mimeType = MediaRecorder.isTypeSupported?.("video/webm;codecs=vp9")
+      ? "video/webm;codecs=vp9"
+      : "video/webm";
+    const recorder = new MediaRecorder(stream, { mimeType });
+    const chunks: BlobPart[] = [];
+    recorder.ondataavailable = (event) => {
+      if (event.data.size > 0) chunks.push(event.data);
+    };
+    recorder.onstop = () => {
+      const blob = new Blob(chunks, { type: mimeType });
+      const url = URL.createObjectURL(blob);
+      const link = document.createElement("a");
+      link.href = url;
+      link.download = `three-body-lab-${preset}-${Date.now()}.webm`;
+      document.body.appendChild(link);
+      link.click();
+      link.remove();
+      URL.revokeObjectURL(url);
+      stream.getTracks().forEach((track) => track.stop());
+      recorderRef.current = null;
+      setExportState("idle");
+    };
+
+    const wasRunning = running;
+    if (!wasRunning) setRunning(true);
+    recorderRef.current = recorder;
+    setExportState("recording");
+    recorder.start();
+    window.setTimeout(() => {
+      recorder.stop();
+      if (!wasRunning) setRunning(false);
+    }, 5000);
+  }, [preset, running]);
 
   return (
     <section className="lab" id="simulator" aria-labelledby="simulator-heading">
@@ -273,6 +395,24 @@ export default function Simulator() {
             <button type="button" onClick={resetSystem}>
               Reset
             </button>
+          </div>
+          <div className="export-control">
+            <button
+              type="button"
+              onClick={exportClip}
+              disabled={exportState === "recording"}
+              aria-describedby="export-status"
+            >
+              {exportState === "recording" ? "Recording…" : "Export video clip"}
+            </button>
+            <p id="export-status" className="export-status" role="status" aria-live="polite">
+              {exportState === "recording" &&
+                "Recording a 5-second WebM clip of the live trajectory…"}
+              {exportState === "unsupported" &&
+                "Video export isn't supported in this browser — try a recent Chrome, Firefox, or Edge."}
+              {exportState === "idle" &&
+                "Downloads a 5-second WebM video of this trajectory, ready to share."}
+            </p>
           </div>
           <div className="mechanism-note">
             <span>Analytic status</span>

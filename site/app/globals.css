@@ -77,6 +77,11 @@ section { scroll-margin-top: 24px; }
 .playback-controls button { flex: 1; min-height: 44px; border: 1px solid var(--ink); background: var(--white); cursor: pointer; }
 .playback-controls button:hover { background: var(--acid); }
 .playback-controls button[aria-pressed="true"] { background: var(--acid); }
+.export-control { padding: 18px 0; border-bottom: 1px solid #babcc9; }
+.export-control button { width: 100%; min-height: 44px; border: 1px solid var(--ink); background: var(--white); cursor: pointer; font-weight: 650; }
+.export-control button:hover:not(:disabled) { background: var(--acid); }
+.export-control button:disabled { cursor: progress; opacity: 0.7; }
+.export-status { margin: 10px 0 0; font-size: 11px; line-height: 1.4; color: var(--muted); min-height: 1.4em; }
 .mechanism-note { background: var(--ink); color: var(--white); padding: 18px; margin-top: 6px; }
 .mechanism-note span, .mechanism-note strong, .mechanism-note small { display: block; }
 .mechanism-note span { color: var(--acid); font: 10px var(--font-geist-mono); text-transform: uppercase; margin-bottom: 9px; }
