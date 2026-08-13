@@ -16,6 +16,7 @@ site/.wrangler/
 site/dist/
 site/node_modules/
 site/next-env.d.ts
+site/tsconfig.tsbuildinfo
 .claude/settings.local.json
 .DS_Store
 site/.vinext/
