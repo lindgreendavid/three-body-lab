@@ -2,6 +2,11 @@ import vinext from "vinext";
 import { defineConfig } from "vite";
 import { sites } from "./build/sites-vite-plugin.ts";
 import { cdnAdapter } from "@vinext/cloudflare/cache/cdn-adapter";
+// Unused directly: vinext-cloudflare's deploy tool statically detects this import to confirm
+// the Cloudflare plugin is configured. The actual plugin instance used below is re-imported
+// dynamically because Wrangler snapshots its log path at import time (see below).
+// eslint-disable-next-line @typescript-eslint/no-unused-vars
+import { cloudflare } from "@cloudflare/vite-plugin";
 
 // macOS Seatbelt blocks FSEvents, so Codex previews need polling for HMR.
 const isCodexSeatbeltSandbox = process.env.CODEX_SANDBOX === "seatbelt";
