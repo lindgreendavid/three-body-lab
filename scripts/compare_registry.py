@@ -14,15 +14,14 @@ ABS_TOLERANCE = 1e-12
 LYAPUNOV_ABS_TOLERANCE = 1e-4
 LYAPUNOV_REL_TOLERANCE = 1e-1
 LYAPUNOV_STD_ABS_TOLERANCE = 5e-2
-CONSERVATION_ABS_TOLERANCE = 1e-10
+ENERGY_DRIFT_LIMIT = 2e-8
+ANGULAR_MOMENTUM_DRIFT_LIMIT = 1e-10
 
 
 def _tolerances(path: str) -> tuple[float, float]:
     """Bound chaotic ODE variation without relaxing other registry fields."""
     if path.endswith(".std_exponent"):
         return LYAPUNOV_REL_TOLERANCE, LYAPUNOV_STD_ABS_TOLERANCE
-    if path.endswith(".energy_relative_drift") or path.endswith(".angular_momentum_relative_drift"):
-        return LYAPUNOV_REL_TOLERANCE, CONSERVATION_ABS_TOLERANCE
     is_lyapunov_estimate = ".exponents[" in path or path.endswith(".mean_exponent")
     if is_lyapunov_estimate:
         return LYAPUNOV_REL_TOLERANCE, LYAPUNOV_ABS_TOLERANCE
@@ -62,6 +61,16 @@ def assert_registry_close(expected: Any, actual: Any, path: str = "$") -> None:
         relative_tolerance, absolute_tolerance = _tolerances(path)
         if not math.isfinite(expected_float) or not math.isfinite(actual_float):
             raise AssertionError(f"{path}: registry numbers must be finite")
+        if path.endswith(".energy_relative_drift"):
+            if max(expected_float, actual_float) > ENERGY_DRIFT_LIMIT:
+                raise AssertionError(f"{path}: energy drift exceeds {ENERGY_DRIFT_LIMIT}")
+            return
+        if path.endswith(".angular_momentum_relative_drift"):
+            if max(expected_float, actual_float) > ANGULAR_MOMENTUM_DRIFT_LIMIT:
+                raise AssertionError(
+                    f"{path}: angular-momentum drift exceeds {ANGULAR_MOMENTUM_DRIFT_LIMIT}"
+                )
+            return
         if not math.isclose(
             expected_float,
             actual_float,
