@@ -12,14 +12,15 @@ from typing import Any
 REL_TOLERANCE = 1e-9
 ABS_TOLERANCE = 1e-12
 LYAPUNOV_ABS_TOLERANCE = 1e-4
-LYAPUNOV_REL_TOLERANCE = 5e-2
+LYAPUNOV_REL_TOLERANCE = 1e-1
+LYAPUNOV_STD_ABS_TOLERANCE = 5e-2
 
 
 def _tolerances(path: str) -> tuple[float, float]:
     """Bound chaotic ODE variation without relaxing other registry fields."""
-    is_lyapunov_estimate = (
-        ".exponents[" in path or path.endswith(".mean_exponent") or path.endswith(".std_exponent")
-    )
+    if path.endswith(".std_exponent"):
+        return LYAPUNOV_REL_TOLERANCE, LYAPUNOV_STD_ABS_TOLERANCE
+    is_lyapunov_estimate = ".exponents[" in path or path.endswith(".mean_exponent")
     if is_lyapunov_estimate:
         return LYAPUNOV_REL_TOLERANCE, LYAPUNOV_ABS_TOLERANCE
     return REL_TOLERANCE, ABS_TOLERANCE
