@@ -36,17 +36,24 @@ test("server-renders the finished research laboratory", async () => {
 });
 
 test("ships accessible controls and research boundaries", async () => {
-  const [page, simulator, lyapunovMap, layout, styles, packageJson] = await Promise.all([
+  const [page, simulator, lyapunovMap, layout, styles, packageJson, heroOrbit] = await Promise.all([
     readFile(new URL("app/page.tsx", root), "utf8"),
     readFile(new URL("app/simulator.tsx", root), "utf8"),
     readFile(new URL("app/lyapunov-map.tsx", root), "utf8"),
     readFile(new URL("app/layout.tsx", root), "utf8"),
     readFile(new URL("app/globals.css", root), "utf8"),
     readFile(new URL("package.json", root), "utf8"),
+    readFile(new URL("app/hero-orbit.tsx", root), "utf8"),
   ]);
   assert.match(simulator, /aria-label="Simulator controls"/);
   assert.match(simulator, /htmlFor="perturbation"/);
+  assert.match(simulator, /aria-describedby="export-status"/);
+  assert.match(simulator, /role="status" aria-live="polite"/);
+  assert.match(simulator, /prefers-reduced-motion: reduce/);
   assert.match(page, /className="skip-link"/);
+  assert.match(page, /<HeroOrbit \/>/);
+  assert.match(heroOrbit, /aria-hidden="true"/);
+  assert.match(heroOrbit, /prefers-reduced-motion: reduce/);
   assert.match(lyapunovMap, /<caption>Perturbation-magnitude sweep/);
   assert.match(lyapunovMap, /Scrollable perturbation sweep data table/);
   assert.match(lyapunovMap, /limitations-first/);
