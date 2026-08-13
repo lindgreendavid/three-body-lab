@@ -1,14 +1,19 @@
 @import "tailwindcss";
 
 :root {
-  --paper: #f1f0f6;
-  --ink: #10131f;
-  --muted: #5a5f70;
-  --line: #ccccd8;
-  --acid: #7ef0c2;
-  --coral: #f4756c;
-  --blue: #3b4ad8;
-  --dark: #0b0e18;
+  /* Cool cosmic/chaos palette — deliberately distinct from Fairshift Lab's warm
+     cream/coral identity. Variable names (--acid, --coral, --blue) are kept from
+     the shared template for minimal churn even though the hues have shifted
+     (--coral now holds violet, --blue now holds teal-cyan); every pair required
+     by tests/accessibility-contract.test.mjs was re-verified at >= 4.5:1. */
+  --paper: #eef0fb;
+  --ink: #12102c;
+  --muted: #5b5a78;
+  --line: #ccccdf;
+  --acid: #f6c655;
+  --coral: #8874c3;
+  --blue: #00708f;
+  --dark: #0a0818;
   --white: #fffefc;
 }
 
