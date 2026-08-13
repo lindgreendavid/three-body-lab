@@ -1,5 +1,9 @@
 # Three Body Lab
 
+<p><a href="https://github.com/lindgreendavid/lindgreendavid/tree/main/brand"><img src="https://raw.githubusercontent.com/lindgreendavid/lindgreendavid/main/brand/lab-notes-mark.svg" width="52" align="right" alt="Lab Notes research-cycle mark"></a></p>
+
+**Part of the [Lab Notes Research Portfolio](https://blog-interactive.lindgreendavid.workers.dev/)** · Computational physics · Question → evidence → finding → boundary
+
 A reproducible laboratory mapping where the planar gravitational three-body problem crosses
 from stable/quasi-periodic to chaotic, as measured by empirically estimated maximal Lyapunov
 exponents.
