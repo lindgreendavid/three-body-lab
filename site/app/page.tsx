@@ -1,3 +1,4 @@
+import HeroOrbit from "./hero-orbit";
 import LyapunovMap from "./lyapunov-map";
 import Simulator from "./simulator";
 
@@ -41,6 +42,13 @@ export default function Home() {
             solution on that map — and the honest result is more interesting than a clean
             stable/chaotic split.
           </p>
+          <div className="hero__demo">
+            <HeroOrbit />
+            <p className="hero__demo-caption">
+              The figure-eight orbit tracing itself, with a barely-perturbed twin (dashed)
+              already visibly peeling away — the phenomenon this lab measures, looping live.
+            </p>
+          </div>
           <div className="hero__actions">
             <a className="button button--primary" href="#simulator">
               Run the simulator

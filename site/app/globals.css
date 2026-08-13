@@ -42,6 +42,9 @@ section { scroll-margin-top: 24px; }
 .hero h1 { font-size: clamp(56px, 8.5vw, 128px); line-height: .88; letter-spacing: -.07em; margin: 44px 0 36px; max-width: 1250px; font-weight: 650; }
 .hero h1 em { color: var(--coral); font-style: normal; }
 .hero__lead { max-width: 700px; margin: 0; font-size: clamp(18px, 2vw, 25px); line-height: 1.45; letter-spacing: -.025em; }
+.hero__demo { display: flex; align-items: center; gap: 20px; max-width: 700px; margin-top: 8px; }
+.hero-orbit { display: block; width: 128px; height: 128px; flex: 0 0 auto; border: 1px solid var(--ink); background: var(--dark); }
+.hero__demo-caption { margin: 0; font-size: 12px; line-height: 1.45; color: var(--muted); }
 .hero__actions { display: flex; gap: 12px; margin-top: 34px; flex-wrap: wrap; }
 .button { min-height: 52px; display: inline-flex; align-items: center; justify-content: center; padding: 0 22px; border: 1px solid var(--ink); font-weight: 650; }
 .button--primary { background: var(--ink); color: var(--white); }
@@ -221,6 +224,7 @@ footer a { font-size: 12px; text-decoration: underline; text-underline-offset: 4
   .nav__links a { flex: 0 0 auto; }
   .hero { min-height: auto; padding: 70px 5vw; }
   .hero h1 { font-size: clamp(44px, 15vw, 57px); }
+  .hero__demo { flex-direction: column; align-items: flex-start; }
   .hero__principles { grid-template-columns: repeat(2, 1fr); }
   .section-heading { grid-template-columns: 1fr; gap: 24px; }
   .scenario-tabs, .lab-grid, .equation-card, .interpretation-ladder, .decision-reading { grid-template-columns: 1fr; }
