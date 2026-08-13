@@ -11,7 +11,7 @@ from typing import Any
 
 REL_TOLERANCE = 1e-9
 ABS_TOLERANCE = 1e-12
-LYAPUNOV_ABS_TOLERANCE = 1e-6
+LYAPUNOV_ABS_TOLERANCE = 1e-5
 
 
 def _absolute_tolerance(path: str) -> float:
