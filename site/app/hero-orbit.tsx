@@ -17,6 +17,15 @@ const TRAIL_LENGTH = 140;
 // single ~6-second loop, without needing to touch any controls.
 const TWIN_PERTURBATION = 4e-2;
 
+// The reference figure-eight orbit plus this exact perturbed twin, traced over one full
+// loop, occupies roughly x in [-1.09, 1.09] and y in [-0.46, 0.57] in physics units (verified
+// numerically for this preset/perturbation/seed/loop-length combination — the figure-eight
+// orbit is a genuinely wide, flat shape, not a rendering bug). These half-extents include
+// headroom so the traced curve fills its canvas instead of sitting as a thin sliver inside
+// a square box sized for a roughly circular shape.
+const CONTENT_HALF_WIDTH = 1.15;
+const CONTENT_HALF_HEIGHT = 0.65;
+
 type Trail = { x: number; y: number }[];
 
 function readPalette(): [string, string, string] {
@@ -44,7 +53,7 @@ export default function HeroOrbit() {
 
     const width = canvas.width;
     const height = canvas.height;
-    const scale = Math.min(width, height) / 2.6;
+    const scale = Math.min(width / (2 * CONTENT_HALF_WIDTH), height / (2 * CONTENT_HALF_HEIGHT));
     const cx = width / 2;
     const cy = height / 2;
     const toScreen = (x: number, y: number) => ({ x: cx + x * scale, y: cy - y * scale });
@@ -176,8 +185,8 @@ export default function HeroOrbit() {
   return (
     <canvas
       ref={canvasRef}
-      width={280}
-      height={280}
+      width={440}
+      height={210}
       className="hero-orbit"
       aria-hidden="true"
     />
