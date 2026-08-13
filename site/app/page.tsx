@@ -167,15 +167,15 @@ export default function Home() {
               <p>Chenciner &amp; Montgomery prove existence of the figure-eight orbit.</p>
               <b>↗</b>
             </a>
-            <a href="https://link.springer.com/article/10.1023/A:1013189722997" target="_blank" rel="noreferrer">
-              <span>Celestial Mechanics · 2001</span>
-              <strong>Periodic orbits of the planar N-body problem with equal masses and satellite orbits</strong>
+            <a href="http://www.maia.ub.edu/dsg/2001/index.html" target="_blank" rel="noreferrer">
+              <span>Proc. 3rd ECM (Birkhäuser) · 2001</span>
+              <strong>Periodic orbits of the planar N-body problem with equal masses and all bodies on the same path</strong>
               <p>Simo numerically refines the figure-eight initial conditions and finds it linearly stable.</p>
               <b>↗</b>
             </a>
-            <a href="https://doi.org/10.1016/j.physd.2007.04.011" target="_blank" rel="noreferrer">
-              <span>Physica D · 2007</span>
-              <strong>Linear stability of the figure-eight orbit in the three-body problem</strong>
+            <a href="https://doi.org/10.1017/S0143385707000284" target="_blank" rel="noreferrer">
+              <span>Ergodic Theory Dynam. Systems · 2007</span>
+              <strong>Linear stability analysis of the figure-eight orbit in the three-body problem</strong>
               <p>Roberts gives a rigorous, computer-assisted proof of linear stability.</p>
               <b>↗</b>
             </a>
@@ -185,14 +185,18 @@ export default function Home() {
               <p>Routh derives the mass-ratio stability criterion for the Lagrange equilateral solution.</p>
               <b>↗</b>
             </a>
-            <a href="https://doi.org/10.1007/BF01459496" target="_blank" rel="noreferrer">
-              <span>Acta Mathematica · 1980</span>
-              <strong>Lyapunov characteristic exponents for smooth dynamical systems</strong>
-              <p>Benettin et al. establish the two-trajectory renormalization method used here.</p>
+            <a href="https://doi.org/10.1007/BF02128236" target="_blank" rel="noreferrer">
+              <span>Meccanica · 1980</span>
+              <strong>Lyapunov characteristic exponents for smooth dynamical systems and for Hamiltonian systems; a method for computing all of them, Part 1: Theory</strong>
+              <p>Benettin, Galgani, Giorgilli &amp; Strelcyn establish the two-trajectory renormalization method used here.</p>
               <b>↗</b>
             </a>
-            <a href="https://doi.org/10.1007/BF02742713" target="_blank" rel="noreferrer">
-              <span>Acta Mathematica · 1890</span>
+            <a
+              href="https://projecteuclid.org/journals/acta-mathematica/volume-13/issue-1-2"
+              target="_blank"
+              rel="noreferrer"
+            >
+              <span>Acta Mathematica, vol. 13 · 1890</span>
               <strong>Sur le probleme des trois corps et les equations de la dynamique</strong>
               <p>Poincare&apos;s prize memoir, the origin of chaos theory and the non-integrability result this project never claims to overturn.</p>
               <b>↗</b>
