@@ -4,6 +4,8 @@ A reproducible laboratory mapping where the planar gravitational three-body prob
 from stable/quasi-periodic to chaotic, as measured by empirically estimated maximal Lyapunov
 exponents.
 
+**[Open the live interactive laboratory](https://three-body-lab-interactive.lindgreendavid.workers.dev)**
+
 **Research question:** across a systematic sweep of initial-condition perturbations and mass
 ratios, where does trajectory behavior cross from stable to chaotic — and do the classical
 special solutions (the figure-eight orbit, the Lagrange equilateral triangle, the Euler
