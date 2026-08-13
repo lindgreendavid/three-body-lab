@@ -10,6 +10,8 @@ exponents.
 
 **[Open the live interactive laboratory](https://three-body-lab-interactive.lindgreendavid.workers.dev)** · **[Read the plain-language write-up](https://blog-interactive.lindgreendavid.workers.dev/posts/three-body-lab-chaos-boundary)**
 
+**Stable product release:** [v1.0.0](https://github.com/lindgreendavid/three-body-lab/releases/tag/v1.0.0) · **Study:** unchanged frozen v0.1 registry.
+
 **Research question:** across a systematic sweep of initial-condition perturbations and mass
 ratios, where does trajectory behavior cross from stable to chaotic — and do the classical
 special solutions (the figure-eight orbit, the Lagrange equilateral triangle, the Euler

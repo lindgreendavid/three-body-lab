@@ -3,7 +3,12 @@
 All notable changes follow [Keep a Changelog](https://keepachangelog.com/en/1.1.0/) and
 [Semantic Versioning](https://semver.org/).
 
-## [Unreleased]
+## [1.0.0] - 2026-08-13
+
+### Added
+
+- Stable product release around the unchanged frozen v0.1 numerical study.
+- Release audit of the 42-cell registry, integrator, conservation checks and Lyapunov tolerances.
 
 ### Fixed
 

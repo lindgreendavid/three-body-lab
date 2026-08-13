@@ -26,7 +26,7 @@ export default function Home() {
         <section className="hero" id="top">
           <div className="eyebrow">
             <span>Verified interactive research release</span>
-            <span>v0.1.0</span>
+            <span>Product v1.0.0 · frozen v0.1 study</span>
           </div>
           <h1>
             Two nearly identical starts.

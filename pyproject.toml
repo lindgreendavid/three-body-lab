@@ -4,7 +4,7 @@ build-backend = "hatchling.build"
 
 [project]
 name = "three-body-lab"
-version = "0.1.0"
+version = "1.0.0"
 description = "A reproducible laboratory mapping the chaos/stability boundary of the planar gravitational three-body problem"
 readme = "README.md"
 requires-python = ">=3.10"
