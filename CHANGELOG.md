@@ -14,7 +14,8 @@ All notable changes follow [Keep a Changelog](https://keepachangelog.com/en/1.1.
   values with a narrow numerical tolerance, including an explicitly bounded tolerance for
   chaotic finite-time Lyapunov estimates from the ODE solver (10% relative for individual and
   mean estimates; `0.05` absolute for the three-seed standard deviation), while retaining exact
-  checks for classifications, structure, parameters, conservation diagnostics, and all other data.
+  checks for classifications, structure, and parameters; conservation diagnostics retain a tight
+  `1e-10` absolute bound and every other field remains exact.
 - Ignored incremental TypeScript build state and aligned the Cloudflare compatibility date with
   the version supported by the pinned runtime.
 
