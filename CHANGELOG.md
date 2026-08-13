@@ -12,7 +12,7 @@ All notable changes follow [Keep a Changelog](https://keepachangelog.com/en/1.1.
   other high-severity advisory.
 - Made frozen-registry verification portable across operating systems by comparing floating-point
   values with a narrow numerical tolerance, including an explicitly bounded tolerance for
-  Lyapunov estimates from the ODE solver (at most `1e-5` absolute), while retaining exact checks
+  Lyapunov estimates from the ODE solver (at most `1e-4` absolute), while retaining exact checks
   for all other data.
 - Ignored incremental TypeScript build state and aligned the Cloudflare compatibility date with
   the version supported by the pinned runtime.
