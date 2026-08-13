@@ -1,0 +1,20 @@
+cff-version: 1.2.0
+message: "If you use this software, please cite it as below."
+title: "Three Body Lab"
+type: software
+version: 0.1.0
+date-released: 2026-08-13
+authors:
+  - family-names: Lindgreen
+    given-names: David
+repository-code: "https://github.com/lindgreendavid/three-body-lab"
+license: MIT
+keywords:
+  - three-body problem
+  - chaos theory
+  - Lyapunov exponent
+  - celestial mechanics
+  - figure-eight orbit
+  - Lagrange point
+  - computational physics
+  - reproducible research
