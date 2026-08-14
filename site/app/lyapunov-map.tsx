@@ -293,9 +293,10 @@ export default function LyapunovMap() {
           </div>
         </details>
         <p className="uncertainty-note" style={{ marginTop: 16 }}>
-          All six mass ratios sit deep in Routh&apos;s analytically unstable region for the
-          Lagrange equilateral relative equilibrium (stability requires one mass to dominate the
-          other two by roughly 25:1 — far outside the 0.5–3.0 range tested here). The monotonic
+          All six mass ratios sit deep in the Gascheau&ndash;Routh analytically unstable region
+          for the Lagrange equilateral relative equilibrium. In this exact (1, r, 1) family,
+          linear stability requires r &gt; 25 + 18&radic;2 &asymp; 50.456&mdash;far outside the
+          0.5&ndash;3.0 range tested here. The monotonic
           increase visible in the table describes degrees of instability within one unstable
           regime, not a stability transition.
         </p>

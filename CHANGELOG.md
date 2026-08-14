@@ -3,6 +3,14 @@
 All notable changes follow [Keep a Changelog](https://keepachangelog.com/en/1.1.0/) and
 [Semantic Versioning](https://semver.org/).
 
+## [Unreleased]
+
+### Fixed
+
+- Correct the Gascheau–Routh boundary for the study's actual `(1, r, 1)` mass family from the
+  restricted-problem shorthand to `r > 25 + 18√2 ≈ 50.456`, and remove claims that the bounded
+  numerical sweep independently corroborates the analytic theorem.
+
 ## [1.0.0] - 2026-08-13
 
 ### Added

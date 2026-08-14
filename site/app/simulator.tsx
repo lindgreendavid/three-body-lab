@@ -20,7 +20,7 @@ const PRESET_COPY: Record<PresetName, { label: string; short: string; note: stri
   lagrange: {
     label: "Lagrange equilateral",
     short: "Equal masses at a rigidly rotating triangle.",
-    note: "Analytically linearly UNSTABLE for equal masses (Routh's criterion requires one mass to dominate ~25:1).",
+    note: "Analytically linearly unstable for equal masses. In this (1, r, 1) family, the Gascheau–Routh boundary is r ≈ 50.456.",
   },
   euler: {
     label: "Euler collinear",

@@ -190,7 +190,7 @@ export default function Home() {
             <a href="https://doi.org/10.1112/plms/s1-6.1.86" target="_blank" rel="noreferrer">
               <span>Proc. LMS · 1875</span>
               <strong>On Laplace&apos;s three particles, with a supplement on the stability of steady motion</strong>
-              <p>Routh derives the mass-ratio stability criterion for the Lagrange equilateral solution.</p>
+              <p>Routh derives the criterion now commonly called the Gascheau&ndash;Routh condition; Gascheau had obtained it earlier.</p>
               <b>↗</b>
             </a>
             <a href="https://doi.org/10.1007/BF02128236" target="_blank" rel="noreferrer">

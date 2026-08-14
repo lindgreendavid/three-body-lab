@@ -30,6 +30,8 @@ test("server-renders the finished research laboratory", async () => {
   assert.match(html, /Read the complete perturbation-magnitude sweep data/);
   assert.match(html, /Read the complete mass-ratio sweep data/);
   assert.match(html, /Routh/);
+  assert.match(html, /50\.456/);
+  assert.doesNotMatch(html, /roughly 25:1|~25:1/);
   assert.match(html, /figure-eight/i);
   assert.match(html, /Accessibility/);
   assert.doesNotMatch(html, /codex-preview|react-loading-skeleton|Starter Project/);

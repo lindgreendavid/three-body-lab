@@ -67,15 +67,19 @@ configurations — the two "special" solutions are the least stable configuratio
 perturbation sweep, not the most.
 
 This is not a bug; it is consistent with established celestial-mechanics theory that this
-project did not fully anticipate when H2 was written. **Routh's stability criterion** for the
+project did not fully anticipate when H2 was written. The **Gascheau–Routh linear-stability
+criterion** for the
 Lagrange equilateral relative equilibrium requires
 `27(m₁m₂ + m₂m₃ + m₃m₁) < (m₁ + m₂ + m₃)²`. For equal masses this is `81m² < 9m²`, which is
 false by a wide margin — the equal-mass Lagrange triangle is **analytically linearly unstable**;
-stability requires one mass to dominate the other two by roughly a factor of 25 or more (the
-regime real Trojan-asteroid systems occupy, not the equal-mass case tested here). Similarly,
+For the actual sweep parameterization `(m₁,m₂,m₃)=(1,r,1)`, substitution gives
+`r²−50r−23>0`, hence stability requires **r > 25 + 18√2 ≈ 50.456**. The often-quoted
+approximately 24.96:1 value belongs to the restricted two-primary mass ratio and is not the
+boundary of this three-finite-mass sweep. Similarly,
 the **Euler collinear relative equilibrium is linearly unstable for every mass ratio** — this is
 a standard classical result, not specific to equal masses. Both classical facts are consistent
-with, and now numerically corroborated by, this sweep. H2's premise ("special solutions are
+with this sweep. The finite-window estimates do not independently prove or precisely test the
+linear-stability theorems. H2's premise ("special solutions are
 presumptively more stable") was wrong for two of the three solutions at the mass ratio tested;
 the report states this rather than reframing the hypothesis after the fact.
 
@@ -97,7 +101,8 @@ entire tested range — not in the *absolute deviation* from 1 that H3 predicted
 `|0.75 − 1| = 0.25` is smaller than `|0.5 − 1| = 0.50`, so H3 predicts a *smaller* exponent at
 ratio 0.75 than at ratio 0.5. The opposite is observed: `1.0946 > 1.0259`. Every tested
 configuration in this sweep sits deep in Routh's unstable region regardless of ratio (the
-required ratio for stability is roughly 25:1, far outside the `0.5`–`3.0` range tested), so all
+required ratio in this exact `(1,r,1)` family is approximately 50.456, far outside the
+`0.5`–`3.0` range tested), so all
 six cells describe degrees of instability within one qualitatively unstable regime rather than
 a transition across a stability boundary. This sweep, as designed, was not wide enough in mass
 ratio to reach the actual Routh stability boundary — a concrete, disclosed scope limitation for
@@ -123,8 +128,8 @@ honored here.
 
 - Two of the three classical special solutions (Lagrange equilateral, Euler collinear) tested
   at equal or near-equal masses are **measurably less stable** than three arbitrary generic
-  bound configurations, not more — consistent with, and a numerical corroboration of, Routh's
-  classical stability criterion.
+  bound configurations, not more — consistent with the Gascheau–Routh linear-stability
+  criterion, without constituting a separate proof of it.
 - The figure-eight orbit, the one special solution proven linearly stable in the literature, is
   the least divergent of the six base configurations tested here, though it still exceeded this
   study's "chaotic" cutoff — plausibly an artifact of the short window and imprecise published
@@ -147,7 +152,8 @@ honored here.
   monodromy-matrix analysis, not brute-force short-window Lyapunov estimation.
 - Any general statement about Lagrange/Euler stability at extreme mass ratios (e.g. Sun–
   Jupiter–Trojan-like systems), since the tested ratio range (`0.5`–`3.0`) never reaches the
-  regime (~25:1) where Routh's criterion predicts stability.
+  regime (`m₂/m₁ > 50.456` for the tested `(1,r,1)` family) where the Gascheau–Routh criterion
+  predicts linear stability.
 
 ## Limitations
 
