@@ -34,7 +34,10 @@ Full reasoning, every hypothesis's disposition, and the limitations that qualify
 ## What this contributes
 
 - A concrete, empirically measured answer to a specific question, not a restatement of the (unsolved, and never-claimed-solved) three-body problem: within this disclosed method's window, where does chaos actually show up, and are the "special" solutions actually more stable? (Answer: not the way textbook intuition suggests — see below.)
-- A real finding grounded in classical celestial mechanics rather than a plausible-sounding narrative: the Lagrange equilateral and Euler collinear solutions measure as *less* stable than generic configurations, which is exactly what Routh's 1875 stability criterion predicts at equal masses — this project numerically corroborates a 150-year-old analytic result rather than merely asserting it.
+- A result grounded in classical celestial mechanics: the equal-mass Lagrange equilateral and
+  Euler collinear solutions show greater finite-window divergence than the generic comparison
+  configurations. This is consistent with their known linear instability, but the short-window,
+  unconstrained perturbation estimator is not a numerical proof of the Gascheau–Routh criterion.
 - An interactive way to *see* sensitive dependence on initial conditions happen, in real time, rather than just being told chaos exists.
 - Two preregistered hypotheses reported as falsified rather than quietly reframed after the fact — see [`docs/research-report.md`](docs/research-report.md).
 - What it does **not** contribute: a solution to the three-body problem, a general theory of the chaos boundary, or any claim beyond this specific grid, integrator, and threshold.
