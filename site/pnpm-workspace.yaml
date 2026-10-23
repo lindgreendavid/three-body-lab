@@ -8,3 +8,9 @@ auditConfig:
   ignoreGhsas:
     - GHSA-w3rx-r6r6-pgpr
     - GHSA-5p2g-fcmc-qvqq
+    - GHSA-vfj7-8cjw-p6xm
+
+overrides:
+  source-map-js: ">=1.2.2"
+  fast-uri: "^3.1.7"
+  vite: ">=8.2.4"
