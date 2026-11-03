@@ -120,3 +120,16 @@ MIT. See [`LICENSE`](LICENSE).
 ## Citation
 
 See [`CITATION.cff`](CITATION.cff).
+
+## Deploying the interactive site
+
+The interactive site in `site/` is a Cloudflare Worker. Its home page is large, and on the free Workers plan rendering it on every visit can exceed the CPU limit: in November 2026 the live site returned empty 503 errors for that reason. The fix is to save the home page as a static file that Cloudflare serves without running the Worker.
+
+```bash
+cd site
+pnpm install
+pnpm run deploy:static                  # build, save the home page as a static file, then deploy with wrangler
+node scripts/deploy-static.mjs --no-deploy   # same, but stop before deploying, to inspect dist/client/index.html
+```
+
+Do not deploy with `pnpm run deploy:vinext` or `vinext-cloudflare deploy`: they build again first and delete the saved page, and the 503 errors can come back. If the site moves to the paid Workers plan, the normal deploy works and this script is no longer needed.
