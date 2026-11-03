@@ -2,13 +2,13 @@
 
 <p><a href="https://github.com/lindgreendavid/lindgreendavid/tree/main/brand"><img src="https://raw.githubusercontent.com/lindgreendavid/lindgreendavid/main/brand/lab-notes-mark.svg" width="52" align="right" alt="Lab Notes research-cycle mark"></a></p>
 
-**Part of the [Lab Notes Research Portfolio](https://blog-interactive.lindgreendavid.workers.dev/)** · Computational physics · Question → evidence → finding → boundary
+**Part of the [Lab Notes Research Portfolio](https://notes.lindgreendavid.com/)** · Computational physics · Question → evidence → finding → boundary
 
 A reproducible laboratory mapping where the planar gravitational three-body problem crosses
 from stable/quasi-periodic to chaotic, as measured by empirically estimated maximal Lyapunov
 exponents.
 
-**[Open the live interactive laboratory](https://three-body-lab-interactive.lindgreendavid.workers.dev)** · **[Read the plain-language write-up](https://blog-interactive.lindgreendavid.workers.dev/posts/three-body-lab-chaos-boundary)**
+**[Open the live interactive laboratory](https://three-body-lab-interactive.lindgreendavid.workers.dev)** · **[Read the plain-language write-up](https://notes.lindgreendavid.com/posts/three-body-lab-chaos-boundary)**
 
 **Stable product release:** [v1.0.0](https://github.com/lindgreendavid/three-body-lab/releases/tag/v1.0.0) · **Study:** unchanged frozen v0.1 registry.
 
